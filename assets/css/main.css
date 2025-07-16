@@ -1,0 +1,87 @@
+:root {
+  --primary: #007bff;
+  --secondary: #6c757d;
+}
+
+.hero {
+  background: url('../img/banner/banner01.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  margin-top: 56px;
+}
+
+.product-card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-popup, .checkout-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1050;
+  width: 400px;
+  max-width: 90%;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 70px 15px 15px;
+  z-index: 1000;
+  width: 300px;
+  max-width: 90%;
+  display: none;
+}
+
+.filter-buttons .btn {
+  margin-left: 10px;
+}
+
+.product-popup img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#popup-carousel img {
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+#popup-thumbnails img {
+  height: 60px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+#popup-thumbnails img:hover {
+  border-color: var(--primary);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-primary {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary);
+  color: white;
+}

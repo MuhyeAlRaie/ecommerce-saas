@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">متجر إلكتروني</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="assets/img/logo.png" alt="الشعار" class="store-logo" style="max-width: 150px;"></a>
+      <div class="me-auto">
+        <button class="btn btn-outline-primary" id="cart-button">
+          🛒 <span id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1 id="hero-title">مرحباً بكم في متجرنا</h1>
+    <p id="hero-subtitle">اكتشف منتجاتنا المميزة</p>
+  </section>
+
+  <div class="container my-4 d-flex align-items-center justify-content-end">
+    <input id="searchInput" type="text" class="form-control w-25 ms-3" placeholder="ابحث عن منتج...">
+    <div class="filter-buttons">
+      <button class="btn btn-outline-dark filter-btn" data-filter="all">الكل</button>
+      <button class="btn btn-outline-dark filter-btn" data-filter="electronics">إلكترونيات</button>
+      <button class="btn btn-outline-dark filter-btn" data-filter="fashion">ملابس</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="products" class="row g-4"></div>
+  </div>
+
+  <div id="cart-popup" class="cart-popup">
+    <h5>سلة المشتريات</h5>
+    <ul id="cart-items" class="list-group mb-2" style="max-height: 250px; overflow-y: auto;"></ul>
+    <div class="d-flex justify-content-between fw-bold mb-2">
+      <span>الإجمالي:</span>
+      <span id="cart-total">0 د.أ</span>
+    </div>
+    <button class="btn btn-success w-100" id="checkout-btn">إتمام الشراء</button>
+  </div>
+
+  <div id="product-popup" class="product-popup">
+    <h5 id="popup-title"></h5>
+    <div id="popup-carousel" class="carousel slide mb-3">
+      <div class="carousel-inner" id="popup-carousel-inner"></div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#popup-carousel">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#popup-carousel">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+    <div class="d-flex justify-content-center gap-2 mb-3" id="popup-thumbnails"></div>
+    <select id="color-select" class="form-select mb-3"></select>
+    <p id="popup-description"></p>
+    <p><strong id="popup-price"></strong></p>
+    <button class="btn btn-primary" id="add-to-cart-btn">أضف إلى السلة</button>
+    <button class="btn btn-secondary mt-2 w-100" onclick="closePopup('product-popup')">إغلاق</button>
+  </div>
+
+  <div id="checkout-popup" class="checkout-popup">
+    <h5>إتمام الطلب</h5>
+    <input id="name" type="text" class="form-control mb-2" placeholder="الاسم">
+    <input id="phone" type="text" class="form-control mb-2" placeholder="رقم الهاتف">
+    <select id="delivery-area" class="form-select mb-2">
+      <option value="" disabled selected>اختر منطقة التوصيل</option>
+    </select>
+    <div id="delivery-fee-message" class="mb-2" style="font-weight: bold;"></div>
+    <input id="address" type="text" class="form-control mb-2" placeholder="العنوان">
+    <select id="payment" class="form-select mb-3"></select>
+    <input id="coupon-code" type="text" class="form-control mb-2" placeholder="كود الخصم (إن وجد)">
+    <button class="btn btn-sm btn-outline-secondary mb-3 w-100" id="apply-coupon-btn">تفعيل الكوبون</button>
+    <div id="coupon-message" class="text-success mb-2" style="display:none;"></div>
+    <div id="order-summary" class="border p-2 mb-3" style="background:#f9f9f9;">
+      <h6 class="fw-bold mb-2">ملخص الطلب:</h6>
+      <ul id="summary-items" class="list-unstyled mb-1" style="max-height: 150px; overflow-y:auto;"></ul>
+      <div class="fw-bold">المجموع: <span id="summary-total">0 د.أ</span></div>
+    </div>
+    <button class="btn btn-success w-100" id="submit-order-btn">تأكيد الطلب</button>
+    <button class="btn btn-secondary mt-2 w-100" onclick="closePopup('checkout-popup')">إلغاء</button>
+  </div>
+
+  <footer class="bg-light text-center mt-5 py-4">
+    <div>
+      <a class="navbar-brand" href="#"><img src="assets/img/logo.png" alt="الشعار" class="store-logo" style="max-width: 150px;"></a>
+      <br>
+      &copy; <span id="current-year"></span> جميع الحقوق محفوظة<br>
+      البريد الإلكتروني: <span id="contact-email">info@example.com</span><br>
+      الهاتف: <span id="contact-phone">+962-7-1234-5678</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

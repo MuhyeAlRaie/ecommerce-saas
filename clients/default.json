@@ -1,0 +1,27 @@
+{
+  "clientId": "default",
+  "storeName": "متجر إلكتروني",
+  "sheetId": "1W5PDvXcsJxYav5C995gmjxDy1ZWofakV04v3eXim-LM",
+  "orderSubmitUrl": "https://script.google.com/macros/s/AKfycbxefp_B4CQcRG7-YDNpdGZlGh9aLMbGqZiTSIQQDdFBI6Fl1v3LYZl2u1xa59_NJn0k/exec",
+  "logoUrl": "assets/img/logo.png",
+  "primaryColor": "#007bff",
+  "secondaryColor": "#6c757d",
+  "contactEmail": "info@example.com",
+  "contactPhone": "+962-7-1234-5678",
+  "whatsappNumber": "962781313782",
+  "currency": "د.أ",
+  "deliveryAreas": {
+    "area1": { "name": "المنطقة 1", "fee": 5 },
+    "area2": { "name": "المنطقة 2", "fee": 10 },
+    "area3": { "name": "المنطقة 3", "fee": 15 }
+  },
+  "paymentMethods": [
+    { "id": "cash", "name": "نقداً" },
+    { "id": "CliQ", "name": "CliQ" }
+  ],
+  "coupons": {
+    "SAVE10": 10,
+    "OFF20": 20,
+    "VIP30": 30
+  }
+}

@@ -1,7 +1,7 @@
 {
   "clientId": "client1",
   "storeName": "متجر الأجهزة الذكية",
-  "sheetId": "https://docs.google.com/spreadsheets/d/1W5PDvXcsJxYav5C995gmjxDy1ZWofakV04v3eXim-LM/edit?usp=sharing",
+  "sheetId": "1W5PDvXcsJxYav5C995gmjxDy1ZWofakV04v3eXim-LM",
   "orderSubmitUrl": "https://script.google.com/macros/s/AKfycbxefp_B4CQcRG7-YDNpdGZlGh9aLMbGqZiTSIQQDdFBI6Fl1v3LYZl2u1xa59_NJn0k/exec",
   "logoUrl": "assets/img/client1-logo.png",
   "primaryColor": "#3498db",

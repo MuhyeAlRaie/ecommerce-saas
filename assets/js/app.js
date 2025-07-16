@@ -57,55 +57,58 @@ class EcommerceApp {
     this.elements.searchInput.addEventListener('input', () => this.displayProducts());
   }
 
-  loadProducts() {
+async loadProducts() {
   if (!window.appConfig?.sheetId) {
-    console.error('لا يوجد معرف لجوجل شيت - استخدام بيانات تجريبية');
+    console.error('No Google Sheet ID configured - using sample data');
     this.products = this.getSampleProducts();
     this.displayProducts();
     return;
   }
-  
-  // استخدم JSONP بدلاً من fetch لتجنب مشاكل CORS
-  const script = document.createElement('script');
-  script.src = `https://script.google.com/macros/s/${window.appConfig.sheetId}/exec?callback=handleProducts`;
-  document.body.appendChild(script);
-  
-  // تعريف دالة الاستجابة
-  window.handleProducts = (data) => {
-    try {
-      this.products = data.map(item => ({
-        id: Number(item.id || 0),
-        name: item.name || 'منتج بدون اسم',
-        category: item.category || 'other',
-        price: Number(item.price || 0),
-        oldPrice: Number(item.oldPrice || 0),
-        shortDesc: item.shortDesc || '',
-        description: item.description || '',
-        images: (item.images || '').split(',').map(s => s.trim()).filter(s => s),
-        colors: (item.colors || '').split(',').map(c => c.trim()).filter(c => c),
-        active: item.active !== 'FALSE'
-      })).filter(p => p.active);
+
+  try {
+    // استخدام JSONP لتجاوز مشكلة CORS
+    const jsonpUrl = `https://script.google.com/macros/s/${window.appConfig.sheetId}/exec?callback=handleProducts`;
+    
+    await new Promise((resolve, reject) => {
+      window.handleProducts = (response) => {
+        if (response.error) {
+          throw new Error(response.message);
+        }
+        
+        this.products = response.data.map(item => ({
+          id: Number(item.id || 0),
+          name: item.name || 'Unnamed Product',
+          category: item.category || 'other',
+          price: Number(item.price || 0),
+          oldPrice: Number(item.oldPrice || 0),
+          shortDesc: item.shortDesc || '',
+          description: item.description || '',
+          images: (item.images || '').split(',').map(s => s.trim()).filter(s => s),
+          colors: (item.colors || '').split(',').map(c => c.trim()).filter(c => c),
+          active: item.active !== 'FALSE'
+        })).filter(p => p.active);
+        
+        this.displayProducts();
+        resolve();
+      };
       
-      this.displayProducts();
-    } catch (error) {
-      console.error('خطأ في معالجة البيانات:', error);
-      this.products = this.getSampleProducts();
-      this.displayProducts();
-    } finally {
-      document.body.removeChild(script);
-      delete window.handleProducts;
-    }
-  };
-  
-  // إعداد مهلة للاستجابة
-  setTimeout(() => {
-    if (!this.products.length) {
-      console.warn('تجاوزت المهلة - استخدام بيانات تجريبية');
-      this.products = this.getSampleProducts();
-      this.displayProducts();
-    }
-  }, 5000);
+      const script = document.createElement('script');
+      script.src = jsonpUrl;
+      script.onerror = reject;
+      document.body.appendChild(script);
+    });
+    
+  } catch (error) {
+    console.error('Error loading products:', error);
+    this.products = this.getSampleProducts();
+    this.displayProducts();
+    
+    // عرض رسالة للمستخدم
+    this.showErrorAlert('Failed to load products. Showing sample data.');
+  }
 }
+  
+  
 
   getSampleProducts() {
     return [

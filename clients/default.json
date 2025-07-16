@@ -1,8 +1,8 @@
 {
   "clientId": "default",
   "storeName": "متجر إلكتروني",
-  "sheetId": "1W5PDvXcsJxYav5C995gmjxDy1ZWofakV04v3eXim-LM",
-  "orderSubmitUrl": "https://script.google.com/macros/s/AKfycbxefp_B4CQcRG7-YDNpdGZlGh9aLMbGqZiTSIQQDdFBI6Fl1v3LYZl2u1xa59_NJn0k/exec",
+  "sheetId": "14ZS2Q5MmQNkdcHSIq0Mnd1aDTLO1OSaJ41LfbvnbGzc",
+  "orderSubmitUrl": "https://script.google.com/macros/s/AKfycbz3Bx9BQ7R6XUn02s9TH-6IqSUUPngwSlXrGCefFhQAt-hZZywRStYmDJ__CBkj-eH_1g/exec",
   "logoUrl": "assets/img/logo.png",
   "primaryColor": "#007bff",
   "secondaryColor": "#6c757d",

@@ -3,8 +3,8 @@ class ConfigManager {
     this.defaultConfig = {
       clientId: 'default',
       storeName: 'متجر إلكتروني',
-      sheetId: '',
-      orderSubmitUrl: '',
+      sheetId: '14ZS2Q5MmQNkdcHSIq0Mnd1aDTLO1OSaJ41LfbvnbGzc',
+      orderSubmitUrl: 'https://script.google.com/macros/s/AKfycbz3Bx9BQ7R6XUn02s9TH-6IqSUUPngwSlXrGCefFhQAt-hZZywRStYmDJ__CBkj-eH_1g/exec',
       logoUrl: 'assets/img/logo.png',
       primaryColor: '#007bff',
       secondaryColor: '#6c757d',
